@@ -1,0 +1,11 @@
+name: NShortcutMenu
+main: nianshow.nshortcutmenu.Main
+author: Nianshow
+version: 1.0
+softdepend:
+  - 'VexView'
+  - 'PlaceholderAPI'
+commands:
+  NShortcutMenu:
+    aliases: nsm
+    description: 'The command from NShortcutMenu'
