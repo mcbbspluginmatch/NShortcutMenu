@@ -1,0 +1,22 @@
+option:
+  # 打开/关闭快捷菜单的键值
+  # 可以在这里查询到所有键位对应的值
+  # https://minecraft.gamepedia.com/Key_codes
+  hotKey: 200
+  # 冷却时长 单位游戏刻
+  coolDown: 10
+  # 松开热键时是否关闭菜单
+  loosen: true
+  # 是否可由Esc等按键关闭菜单
+  closable: false
+  # 是否显示载入界面 设置为false可使得界面切换更连贯
+  loading: false
+  # 黑名单 当在列表中的世界时无法打开快捷菜单
+  # blackList: ['world']
+  blackList: []
+
+# 世界名: ['菜单1', '菜单2', '菜单3']
+# 如果该世界没有单独key 则使用 default
+menu:
+  # 默认菜单组
+  default: ['default']

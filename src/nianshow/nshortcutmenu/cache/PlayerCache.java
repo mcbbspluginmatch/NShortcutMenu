@@ -11,11 +11,13 @@ public class PlayerCache{
     private int page;
     private int width;
     private int height;
+    private String menu;
 
-    public PlayerCache(int page,int width,int height){
+    public PlayerCache(int page,int width,int height,String menu){
         this.page = page;
         this.width = width;
         this.height = height;
+        this.menu = menu;
     }
 
     public int getPage(){
@@ -30,6 +32,10 @@ public class PlayerCache{
         return height;
     }
 
+    public String getMenu(){
+        return menu;
+    }
+
     public void setPage(int page){
         this.page = page;
     }
@@ -42,7 +48,15 @@ public class PlayerCache{
         this.height = height;
     }
 
+    public void setMenu(String menu){
+        this.menu = menu;
+    }
+
     public boolean equals(int width,int height){
         return this.width == width && this.height == height;
+    }
+
+    public boolean hasMenu(){
+        return menu != null && !menu.isEmpty();
     }
 }

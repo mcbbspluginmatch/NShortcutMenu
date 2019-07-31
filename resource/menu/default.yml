@@ -1,0 +1,103 @@
+# 界面参数
+gui:
+  url: '[local]gui.png'
+  x: -1
+  y: -1
+  w: 240
+  h: 160
+
+# 物品组件
+slot:
+  # 槽位名 用于指令中的<槽位>参数
+  'customSlot1':
+    x: 10
+    y: 10
+    # 在游戏中可使用指令设置该物品
+    # 如果你有能力手写也是可以写的
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      type: APPLE
+      amount: 32
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §b测试苹果
+
+# 文本组件
+text:
+  'customText1':
+    # 组件坐标/尺寸/内容
+    x: -1
+    y: 10
+    scale: 1.0
+    content:
+      - '§b欢迎使用粘兽快捷菜单'
+      - 'Lv.%player_level% %player_name%'
+    # 悬浮文本宽度/内容
+    hoverTextWidth: 100
+    hoverText:
+      - '§a这是该文本组件的悬浮文本,'
+      - '§a可以在配置文件内进行设置.'
+
+# 图片组件
+image:
+  'customImage1':
+    url: 'https://www.mcbbs.net/template/mcbbs/image/logo_sc.png'
+    x: -1
+    y: -1
+    # 图片大小
+    w: 140
+    h: 48
+    # 是否为动态图片
+    gif: false
+    # 每一帧的间隔
+    interval: 0
+    # UV坐标 (如果gif为true下面参数将不起效)
+    minU: 0
+    minV: 0
+    maxU: 140
+    maxV: 48
+    hoverText:
+      - '§a这是该图片组件的悬浮文本,'
+      - '§a可以在配置文件内进行设置.'
+
+# 按钮组件
+button:
+  'customButton1':
+    name: '测试按钮'
+    url1: '[local]button.png'
+    url2: '[local]button_.png'
+    x: -1
+    y: 130
+    w: 68
+    h: 16
+    hoverText:
+      - '§a这是该按钮组件的悬浮文本,'
+      - '§a可以在配置文件内进行设置.'
+    # 点击后是否关闭界面
+    close: false
+    # 打开网页链接
+    webUrl: ''
+    # 命令组执行模式
+    # 0 - 正常执行
+    # 1 - 执行到符合条件的组后 停止执行
+    # 2 - 执行到不符合条件的组后 停止执行
+    commandMode: 1
+    # 命令组
+    commandGroup:
+      0:
+        # JavaScript 表达式
+        script:
+          - '%player_health% > 0'
+        # 所需权限
+        permission:
+          - 'menu_commands'
+        commands:
+          - 'say 以%player_name%身份执行指令'
+          - 'op:say 将%player_name%设为管理员执行指令'
+          - 'console:say 以后台身份执行指令'
+      1:
+        script: []
+        permission: []
+        commands:
+          - 'op:TellRaw %player_name% "你没有menu_commands权限"'

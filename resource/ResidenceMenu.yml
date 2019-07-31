@@ -1,0 +1,30 @@
+# 界面参数
+gui:
+  url: '[local]menu/ResidenceMenu.png'
+  x: -1
+  y: -1
+  w: 82
+  h: 120
+
+# 滚动列表组件
+list:
+  x: 0
+  y: 20
+  w: 82
+  h: 100
+  # 领地按钮在列表中的起始坐标
+  startX: 6
+  startY: 6
+  # 领地按钮之间的间隔
+  intervalX: 0
+  intervalY: 20
+
+# 领地按钮参数
+button:
+  # {name} 领地名变量
+  # {x},{y},{z} 领地坐标变量
+  name: '{name} {x},{y},{z}'
+  url1: '[local]button.png'
+  url2: '[local]button_.png'
+  w: 68
+  h: 16

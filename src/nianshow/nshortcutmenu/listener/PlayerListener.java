@@ -5,8 +5,8 @@ import lk.vexview.event.PlayerClientWindowSizeEvent;
 import lk.vexview.event.VerificationFinishEvent;
 import nianshow.nshortcutmenu.Main;
 import nianshow.nshortcutmenu.cache.PlayerCache;
+import nianshow.nshortcutmenu.utils.BaseUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -20,7 +20,7 @@ public class PlayerListener implements Listener{
     @EventHandler
     public void onVerFinish(VerificationFinishEvent e){
         // VexView初始化完成 添加缓存
-        Bukkit.getScheduler().runTask(Main.plugin,() -> createCache(e.getPlayer()));
+        Bukkit.getScheduler().runTask(Main.plugin,() -> BaseUtils.createCache(e.getPlayer()));
     }
 
     @EventHandler
@@ -37,7 +37,7 @@ public class PlayerListener implements Listener{
                 cache.setHeight(height);
             }
         }else{
-            createCache(e.getPlayer());
+            BaseUtils.createCache(e.getPlayer());
         }
     }
 
@@ -45,16 +45,5 @@ public class PlayerListener implements Listener{
     public void onQuit(PlayerQuitEvent e){
         // 退服清理缓存
         PlayerCache.cache.remove(e.getPlayer().getUniqueId());
-    }
-
-    /**
-     * 创建玩家缓存
-     * @param player 玩家
-     */
-    private void createCache(Player player){
-        int page = 0;
-        int width = VexView.getInstance().getPlayerClientWindowWidth(player);
-        int height = VexView.getInstance().getPlayerClientWindowHeight(player);
-        PlayerCache.cache.put(player.getUniqueId(),new PlayerCache(page,width,height));
     }
 }
